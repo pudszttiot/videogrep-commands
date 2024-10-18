@@ -1,0 +1,227 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videogrep Commands</title>
+    <link rel="stylesheet" href="styles.css">
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body>
+
+    <h1>Videogrep Commands</h1>
+
+    <div class="navbar">
+        <a href="#">Home</a>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" id="search-input" class="search-input" onkeyup="searchCommands()" placeholder="Search commands...">
+    </div>
+
+    <div class="command-list">
+
+        <!-- Command 1 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep --help
+                <button class="copy-button" onclick="copyCommand('videogrep --help')">Copy</button>
+            </div>
+            <div class="description">Displays all available commands and their usage options for <code>videogrep</code>.
+            </div>
+        </div>
+
+        <!-- Command 2 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep --input example.mp4 --transcribe
+                <button class="copy-button" onclick="copyCommand('videogrep --input example.mp4 --transcribe')">Copy</button>
+            </div>
+            <div class="description">Transcribes the audio from <code>example.mp4</code>, converting speech to text.
+            </div>
+        </div>
+
+        <!-- Command 3 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep --input example.mp4 --search "hello" --search-type fragment
+                <button class="copy-button" onclick="copyCommand('videogrep --input example.mp4 --search &quot;hello&quot; --search-type fragment')">Copy</button>
+            </div>
+            <div class="description">Searches for the word "hello" in <code>example.mp4</code>, extracting fragments
+                containing the keyword. Example: Extracts short pieces where the word "hello" appears.</div>
+        </div>
+
+        <!-- Command 4 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep --input example.mp4 --search "hello" --search-type sentence
+                <button class="copy-button" onclick="copyCommand('videogrep --input example.mp4 --search &quot;hello&quot; --search-type sentence')">Copy</button>
+            </div>
+            <div class="description">Searches for the word "hello" in <code>example.mp4</code>, extracting full
+                sentences that contain it. Example: Finds full sentences in which "hello" is spoken, regardless of
+                fragment length.</div>
+        </div>
+
+        <!-- Command 5 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep --input example.mp4 --search "hello" --search-type mash
+                <button class="copy-button" onclick="copyCommand('videogrep --input example.mp4 --search &quot;hello&quot; --search-type mash')">Copy</button>
+            </div>
+            <div class="description">Creates a mashup of fragments or sentences that contain the keyword "hello" from
+                <code>example.mp4</code>. Example: Generates a creative mashup of various clips where "hello" is spoken.
+            </div>
+        </div>
+
+        <!-- Command 6 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep --input example.mp4 --ngrams 1
+                <button class="copy-button" onclick="copyCommand('videogrep --input example.mp4 --ngrams 1')">Copy</button>
+            </div>
+            <div class="description">Prints out in the terminal the most common single words</div>
+        </div>
+
+        <!-- Command 6A -->
+        <div class="command-item">
+            <div class="command">
+                videogrep --input example.mp4 --ngrams 1 > results.txt
+                <button class="copy-button" onclick="copyCommand('videogrep --input video.mp4 --ngrams 1 > results.txt')">Copy</button>
+            </div>
+            <div class="description">Prints out in the terminal the most common single words and saves the results of
+                that search to results.txt</div>
+        </div>
+
+        <!-- Command 6B -->
+        <div class="command-item">
+            <div class="command">
+                videogrep --input example.mp4 --ngrams 2
+                <button class="copy-button" onclick="copyCommand('videogrep --input example.mp4 --ngrams 1')">Copy</button>
+            </div>
+            <div class="description">Prints out in the terminal the most common two word phrases</div>
+        </div>
+
+        <!-- Command 7 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep --search "hello" --json results.json
+                <button class="copy-button" onclick="copyCommand('videogrep --search &quot;hello&quot; --json results.json')">Copy</button>
+            </div>
+            <div class="description">Searches for "hello" and saves the search results in <code>results.json</code>,
+                including metadata like timestamps. Example: Ideal for saving clips with additional info for later
+                processing.</div>
+        </div>
+
+        <!-- Command 8 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep --input example.mp4 --search "hello" --randomize
+                <button class="copy-button" onclick="copyCommand('videogrep --input example.mp4 --search &quot;hello&quot; --randomize')">Copy</button>
+            </div>
+            <div class="description">Searches for "hello" and randomizes the resulting clips. Example: The clips appear
+                in a randomized order instead of the sequence they occur in the video.</div>
+        </div>
+
+        <!-- Command 9 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep -i example.mp4 -o clips.mp4 --search "hello" --keep 0.5
+                <button class="copy-button" onclick="copyCommand('videogrep -i example.mp4 -o clips.mp4 --search &quot;hello&quot; --keep 0.5')">Copy</button>
+            </div>
+            <div class="description">Extracts clips containing "hello" from <code>example.mp4</code> while keeping 0.5
+                seconds before and after each occurrence. Example: Keeps context around the keyword and saves as
+                <code>clips.mp4</code>.</div>
+        </div>
+
+        <!-- Command 10 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep --export transcriptions.csv
+                <button class="copy-button" onclick="copyCommand('videogrep --export transcriptions.csv')">Copy</button>
+            </div>
+            <div class="description">Exports the transcriptions of a video into a CSV file. Example: Saves all
+                transcribed speech from a video into a CSV format.</div>
+        </div>
+
+        <!-- Command 11 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep -i example.mp4 -o clips.mp4 --search "hello" --max-splits 5
+                <button class="copy-button" onclick="copyCommand('videogrep -i example.mp4 -o clips.mp4 --search &quot;hello&quot; --max-splits 5')">Copy</button>
+            </div>
+            <div class="description">Extracts clips containing "hello" from <code>example.mp4</code>, allowing a maximum
+                of 5 splits, and saves them as <code>clips.mp4</code>.</div>
+        </div>
+
+        <!-- Command 12 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep -i example.mp4 -o clips.mp4 --srt example.srt --search "keyword1 keyword2"
+                <button class="copy-button" onclick="copyCommand('videogrep -i example.mp4 -o clips.mp4 --srt example.srt --search &quot;keyword1 keyword2&quot;')">Copy</button>
+            </div>
+            <div class="description">Extracts clips matching "keyword1" and "keyword2" from <code>example.mp4</code>,
+                using subtitles from <code>example.srt</code>, and saves them as <code>clips.mp4</code>.</div>
+        </div>
+
+        <!-- Command 13 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep -i input_video.mp4 -o output_video.mp4 --search "keyword1 keyword2" [options]
+                <button class="copy-button" onclick="copyCommand('videogrep -i input_video.mp4 -o output_video.mp4 --search &quot;keyword1 keyword2&quot; [options]')">Copy</button>
+            </div>
+            <div class="description">Extracts clips based on keywords and specified options from
+                <code>input_video.mp4</code>, saving them to <code>output_video.mp4</code>.</div>
+        </div>
+
+        <!-- Command 14 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep -i example.mp4 -o hello_clips.mp4 --search "hello"
+                <button class="copy-button" onclick="copyCommand('videogrep -i example.mp4 -o hello_clips.mp4 --search &quot;hello&quot;')">Copy</button>
+            </div>
+            <div class="description">Extracts clips containing "hello" from <code>example.mp4</code> and saves them as
+                <code>hello_clips.mp4</code>.</div>
+        </div>
+
+        <!-- Command 15 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep -i conversation.mp4 -o greetings.mp4 --search "hello" "goodbye"
+                <button class="copy-button" onclick="copyCommand('videogrep -i conversation.mp4 -o greetings.mp4 --search &quot;hello&quot; &quot;goodbye&quot;')">Copy</button>
+            </div>
+            <div class="description">Extracts clips with both "hello" and "goodbye" from <code>conversation.mp4</code>
+                and saves them as <code>greetings.mp4</code>.</div>
+        </div>
+
+        <!-- Command 16 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep -i lecture.mp4 -o keywords.mp4 --srt lecture.srt --search "data science" "machine learning"
+                <button class="copy-button" onclick="copyCommand('videogrep -i lecture.mp4 -o keywords.mp4 --srt lecture.srt --search &quot;data science&quot; &quot;machine learning&quot;')">Copy</button>
+            </div>
+            <div class="description">Extracts clips containing "data science" and "machine learning" from
+                <code>lecture.mp4</code>, using subtitles from <code>lecture.srt</code>, and saves them as
+                <code>keywords.mp4</code>.</div>
+        </div>
+
+        <!-- Command 17 -->
+        <div class="command-item">
+            <div class="command">
+                videogrep -i "Tucker Carlson Tonight - October 5th 2022.mp4" -o russia_clips.mp4 --search "russia"
+                --randomize
+                <button class="copy-button" onclick="copyCommand('videogrep -i &quot;Tucker Carlson Tonight - October 5th 2022.mp4&quot; -o russia_clips.mp4 --search &quot;russia&quot; --randomize')">Copy</button>
+            </div>
+            <div class="description">Extracts clips containing "russia" from the specified video and saves them as
+                <code>russia_clips.mp4</code>, randomizing their order.</div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Videogrep Command Reference
+    </div>
+
+    <script src="script.js"></script> <!-- External JavaScript file -->
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>
